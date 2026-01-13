@@ -1,9 +1,13 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import HeroSection from '../components/sections/HeroSection.vue'
+import AboutSection from '../components/sections/AboutSection.vue'
+import SiteFooter from '../components/layout/SiteFooter.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <HeroSection />
+    <AboutSection />
+    <SiteFooter />
   </main>
 </template>

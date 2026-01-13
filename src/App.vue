@@ -1,85 +1,45 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+import { RouterView } from 'vue-router'
+import AuroraBg from './components/layout/AuroraBg.vue'
+import MainNavbar from './components/layout/MainNavbar.vue'
+import OverlayMenu from './components/navigation/OverlayMenu.vue'
+
+const menuOpen = ref(false)
+
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value
+  document.body.style.overflow = menuOpen.value ? 'hidden' : 'auto'
+}
+
+const closeMenu = () => {
+  menuOpen.value = false
+  document.body.style.overflow = 'auto'
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div :class="{ 'menu-open': menuOpen }">
+    <AuroraBg :menuOpen="menuOpen" />
+    <MainNavbar :menuOpen="menuOpen" @toggle-menu="toggleMenu" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+    <div id="main-content">
+      <RouterView />
     </div>
-  </header>
 
-  <RouterView />
+    <OverlayMenu :active="menuOpen" @close="closeMenu" />
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style>
+#main-content {
+  transition: all 0.8s var(--transition);
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.menu-open #main-content {
+  filter: blur(50px);
+  opacity: 0.2;
+  transform: scale(0.95);
+  pointer-events: none;
 }
 </style>
