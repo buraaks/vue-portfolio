@@ -67,8 +67,8 @@ const resetTitle = () => {
 const socials = [
   {
     label: 'Email',
-    value: 'buraktemur@email.com',
-    url: 'mailto:buraktemur@email.com',
+    value: 'buraktemur@gmail.com',
+    url: 'mailto:buraktemur@gmail.com',
     icon: 'ph-bold ph-envelope',
   },
   {
