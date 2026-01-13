@@ -1,6 +1,6 @@
 <template>
   <div class="nav-wrapper">
-    <nav class="main-bar" @click="$emit('toggle-menu')">
+    <nav class="main-bar" @click="$emit('toggle-menu')" :class="{ 'menu-open': menuOpen }">
       <div class="nav-icon" :class="{ 'menu-open': menuOpen }">
         <span></span>
         <span></span>
@@ -11,7 +11,7 @@
 
 <script setup>
 defineProps({
-  menuOpen: Boolean
+  menuOpen: Boolean,
 })
 defineEmits(['toggle-menu'])
 </script>
@@ -39,33 +39,9 @@ defineEmits(['toggle-menu'])
   border-radius: 100px;
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(15px);
-  transition:
-    background 0.4s var(--transition),
-    border-color 0.4s var(--transition),
-    box-shadow 0.4s var(--transition);
-  overflow: hidden;
+  transition: all 0.4s var(--transition);
   position: relative;
-}
-
-.main-bar::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.1),
-    transparent
-  );
-  transform: skewX(-25deg);
-  transition: 0.5s;
-}
-
-.main-bar:hover::before {
-  left: 150%;
+  overflow: hidden;
 }
 
 .main-bar:hover {
