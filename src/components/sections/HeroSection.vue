@@ -2,21 +2,26 @@
   <section class="hero" id="hero">
     <h1 class="hero-title">BURAK</h1>
     <p class="hero-subtitle">Developer & Student</p>
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" @click="scrollToAbout">
       <i class="ph ph-arrow-down"></i>
     </div>
   </section>
 </template>
 
+<script setup>
+const scrollToAbout = () => {
+  const aboutSection = document.getElementById('about')
+  if (aboutSection) {
+    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+}
+</script>
+
 <style scoped>
 .hero {
   flex-direction: column;
   position: relative;
-  background: radial-gradient(
-    circle at 50% 50%,
-    rgba(99, 102, 241, 0.05) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 70%);
 }
 
 .hero-title {
@@ -48,6 +53,7 @@
   bottom: 40px;
   font-size: 1.5rem;
   animation: bounce 2s infinite;
+  cursor: pointer;
 }
 
 @keyframes fadeInUp {
@@ -62,7 +68,11 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {

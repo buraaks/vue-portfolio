@@ -77,7 +77,7 @@ defineEmits(['close'])
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(12, 18, 34, 0.9);
+  background: transparent;
   backdrop-filter: blur(0px);
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
