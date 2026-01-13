@@ -33,11 +33,15 @@ const closeMenu = () => {
 
 <style>
 #main-content {
-  transition: all 0.8s var(--transition);
+  transition:
+    filter 1.2s ease-in-out,
+    opacity 1.2s ease-in-out,
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: filter, opacity, transform;
 }
 
 .menu-open #main-content {
-  filter: blur(50px);
+  filter: blur(20px); /* Daha performanslı ve yumuşak bir geçiş için düşürüldü */
   opacity: 0.2;
   transform: scale(0.95);
   pointer-events: none;
