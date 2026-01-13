@@ -1,1 +1,0 @@
-import{_ as o,c as s,a as t,o as a}from"./index-uwVzNU-D.js";const n={},c={class:"about"};function r(i,e){return a(),s("div",c,[...e[0]||(e[0]=[t("h1",null,"bu hakkında penceresi yupiiiii ",-1)])])}const u=o(n,[["render",r]]);export{u as default};
