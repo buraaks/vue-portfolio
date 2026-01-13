@@ -1,7 +1,14 @@
 <template>
   <div class="page-container">
     <div class="container">
-      <h1 class="section-title">İletişim</h1>
+      <h1
+        class="section-title interactive-title"
+        ref="titleRef"
+        @mousemove="handleTitleMove"
+        @mouseleave="resetTitle"
+      >
+        CONTACT
+      </h1>
 
       <div class="contact-wrapper">
         <div class="contact-info">
@@ -38,6 +45,25 @@
 <script setup>
 import { ref } from 'vue'
 
+const titleRef = ref(null)
+
+const handleTitleMove = (e) => {
+  if (!titleRef.value) return
+  const rect = titleRef.value.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  const centerX = rect.width / 2
+  const centerY = rect.height / 2
+  const rotateX = (y - centerY) / 10
+  const rotateY = (centerX - x) / 10
+  titleRef.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`
+}
+
+const resetTitle = () => {
+  if (!titleRef.value) return
+  titleRef.value.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)'
+}
+
 const socials = [
   {
     label: 'Email',
@@ -69,8 +95,24 @@ const copy = (text) => {
 
 <style scoped>
 .page-container {
-  padding-top: 120px;
+  padding: 140px 20px 80px;
   min-height: 100vh;
+}
+
+.interactive-title {
+  display: block;
+  cursor: default;
+  transition:
+    transform 0.1s ease-out,
+    color 0.5s var(--transition),
+    text-shadow 0.5s var(--transition);
+  margin-bottom: 60px;
+}
+
+.interactive-title:hover {
+  color: var(--text-color);
+  -webkit-text-stroke: 0px;
+  text-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
 }
 
 .contact-wrapper {
