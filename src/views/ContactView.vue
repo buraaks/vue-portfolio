@@ -10,13 +10,16 @@
         </h1>
       </div>
 
-      <div class="contact-wrapper">
+      <div class="contact-grid">
+        <!-- Sol Taraf: Bilgiler ve Sosyal Medya -->
         <div class="contact-info">
-          <h2>Bana Ulaşın</h2>
-          <p>
-            Yeni projeler, iş teklifleri veya sadece kahve içip sohbet etmek için bana
-            ulaşabilirsiniz.
-          </p>
+          <div class="info-header">
+            <h2>Bana Ulaşın</h2>
+            <p>
+              Yeni projeler, iş teklifleri veya sadece kahve içip sohbet etmek için bana
+              ulaşabilirsiniz.
+            </p>
+          </div>
 
           <div class="social-list">
             <div v-for="social in socials" :key="social.label" class="social-card">
@@ -36,6 +39,40 @@
               </button>
             </div>
           </div>
+        </div>
+
+        <!-- Sağ Taraf: İletişim Formu -->
+        <div class="contact-form-container">
+          <form
+            action="https://formspree.io/f/mdaakool"
+            method="POST"
+            class="contact-form"
+          >
+            <div class="form-group">
+              <label for="name">İsim</label>
+              <input type="text" id="name" name="name" placeholder="Adınız Soyadınız" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-posta</label>
+              <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Konu</label>
+              <input type="text" id="subject" name="subject" placeholder="Neyle ilgili?" required>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mesajınız</label>
+              <textarea id="message" name="message" rows="5" placeholder="Mesajınızı buraya yazın..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <span>Gönder</span>
+              <i class="ph-bold ph-paper-plane-tilt"></i>
+            </button>
+          </form>
         </div>
       </div>
     </div>
@@ -108,41 +145,121 @@ const copy = (text) => {
   width: 100%;
 }
 
-.contact-wrapper {
-  max-width: 800px;
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  max-width: 1100px;
   margin: 50px auto;
+  align-items: start;
 }
 
 .contact-info h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
+  color: #fff;
 }
 
 .contact-info p {
   color: var(--text-muted);
   margin-bottom: 40px;
   font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Form Styles */
+.contact-form-container {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  padding: 40px;
+  border-radius: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #fff;
+  margin-left: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 15px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.submit-btn {
+  background: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.3s var(--transition);
+  margin-top: 10px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.submit-btn:active {
+  transform: translateY(-1px);
 }
 
 .social-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .social-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 30px;
+  padding: 15px 25px;
   transition: 0.3s;
 }
 
 .social-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
   border-color: var(--accent-color);
   transform: translateX(10px);
 }
@@ -150,12 +267,12 @@ const copy = (text) => {
 .social-card a {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
   flex: 1;
 }
 
 .social-card i {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--accent-color);
 }
 
@@ -165,27 +282,27 @@ const copy = (text) => {
 }
 
 .social-meta .label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text-muted);
 }
 
 .social-meta .value {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #fff;
 }
 
 .copy-btn {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border: none;
   color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .copy-btn:hover {
@@ -194,5 +311,12 @@ const copy = (text) => {
 
 .copy-btn.copied {
   background: #10b981;
+}
+
+@media (max-width: 968px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 </style>
