@@ -45,7 +45,7 @@ defineProps({
   inset: 0;
   background:
     radial-gradient(circle 600px at 20% 20%, var(--accent-soft) 0%, transparent 60%),
-    radial-gradient(circle 500px at 80% 80%, var(--accent-glow) 0%, transparent 60%);
+    radial-gradient(circle 500px at 80% 80%, var(--accent-soft) 0%, transparent 60%);
   animation: ambient-drift 30s ease-in-out infinite alternate;
 }
 
