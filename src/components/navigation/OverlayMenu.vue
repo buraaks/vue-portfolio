@@ -85,6 +85,7 @@ defineEmits(['close'])
 .overlay-nav.active {
   visibility: visible;
   opacity: 1;
+  background: rgba(0, 0, 0, 0.5); /* Hafif koyulaştırma */
   backdrop-filter: blur(40px);
 }
 
