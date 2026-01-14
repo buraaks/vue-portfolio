@@ -15,6 +15,8 @@
   font-size: 0.9rem;
   background: color-mix(in srgb, var(--bg-color), transparent 50%);
   backdrop-filter: blur(10px);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .footer-content {

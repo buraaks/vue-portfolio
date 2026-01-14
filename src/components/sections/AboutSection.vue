@@ -1,14 +1,14 @@
 <template>
   <section class="about" id="about">
     <div class="container">
-      <h2
-        class="section-title interactive-title"
-        ref="titleRef"
-        @mousemove="handleTitleMove"
-        @mouseleave="resetTitle"
-      >
-        WHO AM I
-      </h2>
+      <div class="title-wrapper" @mousemove="handleTitleMove" @mouseleave="resetTitle">
+        <h2
+          class="section-title interactive-title"
+          ref="titleRef"
+        >
+          WHO AM I
+        </h2>
+      </div>
 
       <div class="bio-container">
         <div class="bio-header">
@@ -64,6 +64,13 @@ const resetTitle = () => {
 </script>
 
 <style scoped>
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .bio-container {
   display: flex;
   flex-direction: column;

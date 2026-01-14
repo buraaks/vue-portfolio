@@ -1,14 +1,14 @@
 <template>
   <div class="page-container">
     <div class="container">
-      <h1
-        class="section-title interactive-title"
-        ref="titleRef"
-        @mousemove="handleTitleMove"
-        @mouseleave="resetTitle"
-      >
-        CONTACT
-      </h1>
+      <div class="title-wrapper" @mousemove="handleTitleMove" @mouseleave="resetTitle">
+        <h1
+          class="section-title interactive-title"
+          ref="titleRef"
+        >
+          CONTACT
+        </h1>
+      </div>
 
       <div class="contact-wrapper">
         <div class="contact-info">
@@ -99,6 +99,13 @@ const copy = (text) => {
 .page-container {
   padding: 140px 20px 80px;
   min-height: 100vh;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .contact-wrapper {

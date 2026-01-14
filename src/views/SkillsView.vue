@@ -1,14 +1,14 @@
 <template>
   <div class="skills-page">
     <div class="container">
-      <h1
-        class="section-title interactive-title"
-        ref="titleRef"
-        @mousemove="handleTitleMove"
-        @mouseleave="resetTitle"
-      >
-        SKILLS
-      </h1>
+      <div class="title-wrapper" @mousemove="handleTitleMove" @mouseleave="resetTitle">
+        <h1
+          class="section-title interactive-title"
+          ref="titleRef"
+        >
+          SKILLS
+        </h1>
+      </div>
 
       <div class="skills-grid">
         <!-- FRONTEND -->
@@ -104,6 +104,13 @@ const resetTitle = () => {
   padding: 140px 20px 80px;
   min-height: 100vh;
   background: transparent;
+}
+
+.title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .skills-grid {

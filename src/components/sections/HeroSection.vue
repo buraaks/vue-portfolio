@@ -35,6 +35,8 @@ const scrollToAbout = () => {
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 10px 30px var(--accent-soft));
   animation: fadeInUp 1.2s var(--transition) forwards;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .hero-subtitle {
@@ -46,6 +48,8 @@ const scrollToAbout = () => {
   margin-top: -10px;
   opacity: 0;
   animation: fadeInUp 1.2s var(--transition) forwards 0.4s;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .scroll-indicator {

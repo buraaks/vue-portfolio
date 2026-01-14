@@ -67,6 +67,8 @@ section {
   color: transparent;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
   transition: all 0.5s var(--transition);
+  user-select: none; /* Metin seçimini engeller */
+  -webkit-user-select: none; /* Safari için */
 }
 
 .interactive-title {

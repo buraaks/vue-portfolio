@@ -118,6 +118,8 @@ defineEmits(['close'])
   transition: all 0.5s var(--transition);
   opacity: 0;
   transform: translateY(20px);
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .grid-item-btn.show {

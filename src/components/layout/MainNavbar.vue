@@ -42,6 +42,8 @@ defineEmits(['toggle-menu'])
   transition: all 0.4s var(--transition);
   position: relative;
   overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .main-bar:hover {
