@@ -45,18 +45,16 @@ const titleRef = ref(null)
 
 const handleTitleMove = (e) => {
   if (!titleRef.value) return
-
   const rect = titleRef.value.getBoundingClientRect()
-  const x = e.clientX
-  const y = e.clientY
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  const centerX = rect.width / 2
+  const centerY = rect.height / 2
 
-  const centerX = rect.left + rect.width / 2
-  const centerY = rect.top + rect.height / 2
+  const rotateX = -(y - centerY) / 35
+  const rotateY = (x - centerX) / 35
 
-  const deltaX = (x - centerX) / 20
-  const deltaY = (y - centerY) / 20
-
-  titleRef.value.style.transform = `perspective(1000px) rotateX(${-deltaY}deg) rotateY(${deltaX}deg) scale(1.05)`
+  titleRef.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`
 }
 
 const resetTitle = () => {
@@ -66,18 +64,6 @@ const resetTitle = () => {
 </script>
 
 <style scoped>
-.interactive-title {
-  display: block;
-  cursor: default;
-  transition: transform 0.1s ease-out, color 0.5s var(--transition), text-shadow 0.5s var(--transition);
-}
-
-.interactive-title:hover {
-  color: var(--text-color);
-  -webkit-text-stroke: 0px;
-  text-shadow: 0 0 30px var(--accent-glow);
-}
-
 .bio-container {
   display: flex;
   flex-direction: column;

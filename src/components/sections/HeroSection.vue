@@ -21,7 +21,7 @@ const scrollToAbout = () => {
 .hero {
   flex-direction: column;
   position: relative;
-  background: radial-gradient(circle at 50% 50%, var(--accent-soft) 0%, transparent 70%);
+  background: transparent;
 }
 
 .hero-title {

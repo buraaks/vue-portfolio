@@ -74,19 +74,15 @@ const handleTitleMove = (e) => {
   const centerX = rect.width / 2
   const centerY = rect.height / 2
 
-  // Hassasiyeti azalttık (10 -> 35)
-  const rotateX = (y - centerY) / 35
-  const rotateY = (centerX - x) / 35
+  // Yönü tersine çevirdik (Mouse'un olduğu yöne doğru eğilme)
+  const rotateX = -(y - centerY) / 35
+  const rotateY = (x - centerX) / 35
 
-  // Hareket anında geçiş süresini sıfırlıyoruz ki Mouse'u anlık takip etsin
-  titleRef.value.style.transition = 'none'
   titleRef.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`
 }
 
 const resetTitle = () => {
   if (!titleRef.value) return
-  // Çıkınca yumuşakça eski haline dönmesi için transition ekliyoruz
-  titleRef.value.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)'
   titleRef.value.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)'
 }
 
@@ -128,22 +124,6 @@ onMounted(fetchRepos)
 .page-container {
   padding: 140px 20px 80px;
   min-height: 100vh;
-}
-
-.interactive-title {
-  display: block;
-  cursor: default;
-  transition:
-    color 0.5s var(--transition),
-    text-shadow 0.5s var(--transition);
-  margin-bottom: 60px;
-  will-change: transform;
-}
-
-.interactive-title:hover {
-  color: var(--text-color);
-  -webkit-text-stroke: 0px;
-  text-shadow: 0 0 40px var(--accent-glow);
 }
 
 .projects-grid {

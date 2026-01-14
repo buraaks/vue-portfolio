@@ -86,9 +86,11 @@ const handleTitleMove = (e) => {
   const y = e.clientY - rect.top
   const centerX = rect.width / 2
   const centerY = rect.height / 2
-  const rotateX = (y - centerY) / 10
-  const rotateY = (centerX - x) / 10
-  titleRef.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`
+
+  const rotateX = -(y - centerY) / 35
+  const rotateY = (x - centerX) / 35
+
+  titleRef.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`
 }
 
 const resetTitle = () => {
@@ -102,22 +104,6 @@ const resetTitle = () => {
   padding: 140px 20px 80px;
   min-height: 100vh;
   background: transparent;
-}
-
-.interactive-title {
-  display: block;
-  cursor: default;
-  transition:
-    transform 0.1s ease-out,
-    color 0.5s var(--transition),
-    text-shadow 0.5s var(--transition);
-  margin-bottom: 60px;
-}
-
-.interactive-title:hover {
-  color: var(--text-color);
-  -webkit-text-stroke: 0px;
-  text-shadow: 0 0 40px var(--accent-glow);
 }
 
 .skills-grid {
