@@ -26,10 +26,11 @@ jobs:
         run: npm install
 
       - name: Build 🏗️
-        run: npm run build
+        run: npm run generate
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # Build sonrası oluşan klasör
-          branch: gh-pages # Yayının yapılacağı branch
+          folder: .output/public # Nuxt 3/4 static output folder
+          branch: gh-pages
+          clean: true

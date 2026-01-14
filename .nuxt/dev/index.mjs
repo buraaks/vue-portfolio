@@ -922,9 +922,9 @@ function _expandFromEnv(value) {
 
 const _inlineRuntimeConfig = {
   "app": {
-    "baseURL": "/",
+    "baseURL": "/vue-portfolio/",
     "buildId": "dev",
-    "buildAssetsDir": "/_nuxt/",
+    "buildAssetsDir": "assets",
     "cdnURL": ""
   },
   "nitro": {
@@ -941,12 +941,12 @@ const _inlineRuntimeConfig = {
           "maxAge": 31536000
         }
       },
-      "/_nuxt/builds/meta/**": {
+      "/assets/builds/meta/**": {
         "headers": {
           "cache-control": "public, max-age=31536000, immutable"
         }
       },
-      "/_nuxt/builds/**": {
+      "/assets/builds/**": {
         "headers": {
           "cache-control": "public, max-age=1, immutable"
         }
@@ -1537,7 +1537,7 @@ async function defaultHandler(error, event, opts) {
   const statusMessage = error.statusMessage || "Server Error";
   const url = getRequestURL(event, { xForwardedHost: true, xForwardedProto: true });
   if (statusCode === 404) {
-    const baseURL = "/";
+    const baseURL = "/vue-portfolio/";
     if (/^\/[^/]/.test(baseURL) && !url.pathname.startsWith(baseURL)) {
       const redirectTo = `${baseURL}${url.pathname.slice(1)}${url.search}`;
       return {
@@ -1784,7 +1784,7 @@ function readAsset (id) {
   return promises.readFile(resolve$1(serverDir, assets[id].path))
 }
 
-const publicAssetBases = {"/_nuxt/builds/meta/":{"maxAge":31536000},"/_nuxt/builds/":{"maxAge":1},"/_fonts/":{"maxAge":31536000}};
+const publicAssetBases = {"/assets/builds/meta/":{"maxAge":31536000},"/assets/builds/":{"maxAge":1},"/_fonts/":{"maxAge":31536000}};
 
 function isPublicAssetURL(id = '') {
   if (assets[id]) {
