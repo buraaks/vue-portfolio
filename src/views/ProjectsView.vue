@@ -78,12 +78,26 @@ const handleTitleMove = (e) => {
   const rotateX = -(y - centerY) / 35
   const rotateY = (x - centerX) / 35
 
-  titleRef.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`
+  // Distance calculation (Wider area)
+  const distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2))
+  const maxDist = 600 // Increased detection range
+  let intensity = 1 - (distance / maxDist)
+  intensity = Math.max(0, Math.min(1, intensity))
+
+  titleRef.value.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${1 + intensity * 0.05})`
+
+  // Dynamic Light Effects (Subtler/Reduced Height)
+  titleRef.value.style.color = `rgba(244, 247, 251, ${intensity * 0.7})`
+  titleRef.value.style.webkitTextStrokeColor = `rgba(255, 255, 255, ${0.15 * (1 - intensity)})`
+  titleRef.value.style.textShadow = `0 0 ${intensity * 20}px var(--accent-glow)`
 }
 
 const resetTitle = () => {
   if (!titleRef.value) return
   titleRef.value.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)'
+  titleRef.value.style.color = 'transparent'
+  titleRef.value.style.webkitTextStrokeColor = 'rgba(255, 255, 255, 0.15)'
+  titleRef.value.style.textShadow = 'none'
 }
 
 const repos = ref([])
@@ -131,6 +145,11 @@ onMounted(fetchRepos)
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 150px 0;
+  margin: -150px 0;
+  position: relative;
+  z-index: 10;
+  cursor: default;
 }
 
 .projects-grid {
