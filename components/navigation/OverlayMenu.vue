@@ -114,7 +114,7 @@ defineEmits(['close'])
   justify-content: center;
   gap: 15px;
   font-weight: 700;
-  font-size: 1.3rem; /* %20 increased */
+  font-size: 1.5rem;
   transition: all 0.5s var(--transition);
   opacity: 0;
   transform: translateY(20px);
