@@ -75,7 +75,7 @@ const resetTitle = () => {
 .interactive-title:hover {
   color: var(--text-color);
   -webkit-text-stroke: 0px;
-  text-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
+  text-shadow: 0 0 30px var(--accent-glow);
 }
 
 .bio-container {

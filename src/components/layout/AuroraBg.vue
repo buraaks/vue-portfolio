@@ -27,7 +27,7 @@ defineProps({
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: #080c14;
+  background: var(--bg-color);
   overflow: hidden;
   pointer-events: none;
 }
@@ -36,7 +36,7 @@ defineProps({
 .base-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, #080c14 0%, #0a1020 40%, #0d1428 100%);
+  background: linear-gradient(to bottom, var(--bg-color) 0%, color-mix(in srgb, var(--accent-color), black 90%) 40%, color-mix(in srgb, var(--accent-color), black 85%) 100%);
 }
 
 /* Ambient Glow - Continuous subtle movement */
@@ -44,8 +44,8 @@ defineProps({
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle 600px at 20% 20%, rgba(99, 102, 241, 0.06) 0%, transparent 60%),
-    radial-gradient(circle 500px at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 60%);
+    radial-gradient(circle 600px at 20% 20%, var(--accent-soft) 0%, transparent 60%),
+    radial-gradient(circle 500px at 80% 80%, var(--accent-glow) 0%, transparent 60%);
   animation: ambient-drift 30s ease-in-out infinite alternate;
 }
 
@@ -53,7 +53,7 @@ defineProps({
 .menu-accent {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle 800px at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle 800px at 50% 50%, var(--accent-glow) 0%, transparent 50%);
   pointer-events: none;
 }
 

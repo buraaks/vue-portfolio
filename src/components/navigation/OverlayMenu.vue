@@ -130,7 +130,7 @@ defineEmits(['close'])
 }
 
 .grid-item-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: color-mix(in srgb, var(--accent-color), transparent 90%);
   border-color: var(--accent-color);
   transform: scale(1.02);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);

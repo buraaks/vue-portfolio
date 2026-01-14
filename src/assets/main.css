@@ -1,12 +1,23 @@
 @import './base.css';
 
 :root {
-  --bg-color: #0c1222;
+  /* Rastgelelik için HSL formatına geçtik */
+  --accent-hue: 258; /* JavaScript tarafından rastgele atanacak varsayılan değer (mor) */
+  --accent-color: hsl(var(--accent-hue), 55%, 65%);
+
+  /* Arka plan: Ana rengin %94 siyahla karışımı */
+  --bg-color: color-mix(in srgb, var(--accent-color), black 94%);
   --text-color: #f4f7fb;
-  --accent-color: #6366f1;
-  --text-muted: #8896a8;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+
+  /* Otomatik türetilen tonlar */
+  --accent-light: color-mix(in srgb, var(--accent-color), white 30%);
+  --accent-dark: color-mix(in srgb, var(--accent-color), black 30%);
+  --accent-soft: color-mix(in srgb, var(--accent-color), transparent 80%);
+  --accent-glow: color-mix(in srgb, var(--accent-color), transparent 30%);
+
+  --text-muted: color-mix(in srgb, var(--text-color), transparent 40%);
+  --glass-bg: color-mix(in srgb, var(--accent-color), transparent 94%);
+  --glass-border: color-mix(in srgb, var(--accent-color), transparent 80%);
   --transition: cubic-bezier(0.16, 1, 0.3, 1);
 }
 

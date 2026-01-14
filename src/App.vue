@@ -1,11 +1,25 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 import AuroraBg from './components/layout/AuroraBg.vue'
 import MainNavbar from './components/layout/MainNavbar.vue'
 import OverlayMenu from './components/navigation/OverlayMenu.vue'
 
 const menuOpen = ref(false)
+
+// Rastgele renk aralıkları (Şık duran tonlar)
+const colorSchemes = [
+  258, // Klasik Mor
+  210, // Modern Mavi
+  350, // Zarif Kırmızı/Gül
+  160, // Ferah Yeşil
+  30,  // Sıcak Turuncu/Altın
+]
+
+onMounted(() => {
+  const randomHue = colorSchemes[Math.floor(Math.random() * colorSchemes.length)]
+  document.documentElement.style.setProperty('--accent-hue', randomHue)
+})
 
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value

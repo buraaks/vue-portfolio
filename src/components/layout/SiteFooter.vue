@@ -13,7 +13,7 @@
   border-top: 1px solid var(--glass-border);
   color: var(--text-muted);
   font-size: 0.9rem;
-  background: rgba(12, 18, 50, 0.5);
+  background: color-mix(in srgb, var(--bg-color), transparent 50%);
   backdrop-filter: blur(10px);
 }
 

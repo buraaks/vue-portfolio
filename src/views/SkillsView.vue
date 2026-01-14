@@ -117,7 +117,7 @@ const resetTitle = () => {
 .interactive-title:hover {
   color: var(--text-color);
   -webkit-text-stroke: 0px;
-  text-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+  text-shadow: 0 0 40px var(--accent-glow);
 }
 
 .skills-grid {
@@ -155,7 +155,7 @@ const resetTitle = () => {
 .icon-box {
   width: 50px;
   height: 50px;
-  background: rgba(99, 102, 241, 0.1);
+  background: var(--accent-soft);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -217,7 +217,7 @@ const resetTitle = () => {
 }
 
 .learning-card {
-  background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+  background: linear-gradient(90deg, var(--accent-soft), transparent);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 24px;
   padding: 30px;

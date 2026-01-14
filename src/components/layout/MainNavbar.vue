@@ -45,9 +45,9 @@ defineEmits(['toggle-menu'])
 }
 
 .main-bar:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(99, 102, 241, 0.5);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+  background: color-mix(in srgb, var(--accent-color), transparent 92%);
+  border-color: var(--accent-glow);
+  box-shadow: 0 0 20px var(--accent-soft);
 }
 
 .nav-icon {

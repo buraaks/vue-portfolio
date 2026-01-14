@@ -134,7 +134,7 @@ onMounted(fetchRepos)
 .interactive-title:hover {
   color: var(--text-color);
   -webkit-text-stroke: 0px;
-  text-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+  text-shadow: 0 0 40px var(--accent-glow);
 }
 
 .projects-grid {
