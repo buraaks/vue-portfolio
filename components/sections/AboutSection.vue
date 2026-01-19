@@ -20,15 +20,6 @@
             yazılım üstüne lise stajımı <a href="https://trex.com.tr/tr/" target="_blank">TREX Dijital Manufacturing</a>' de yapmaktayım.
             Amacım yazılımda ve eğitim öğretim hayatımda kendimi geliştirmek.
           </p>
-          <div class="hobbies">
-            <p>Hobilerim;</p>
-            <ul>
-              <li>Yazılım Geliştirme</li>
-              <li>Sanat</li>
-              <li>Yeni Şeyler Öğrenmek</li>
-              <li>Vibe coding ile işe yarar açık kaynak proje yapmak. örnek: <a href="https://github.com/buraaks/OverlayPlayer" target="_blank">OverlayPlayer</a></li>
-            </ul>
-          </div>
           <p>
             Eğer ortak ilgi alanlarımız varsa, iş görüşmesi yapmak istiyorsanız veya sadece sohbet etmek istiyorsanız benimle iletişime geçebilirsiniz.
           </p>
